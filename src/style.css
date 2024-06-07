@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Anta&display=swap');
+
+body {
+  background-color: black;
+}
+
+.container-game {
+  height: 800px;
+  width: 1200px;
+
+  margin: 20px auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+}
+
+.sobre-gamifica {
+  left: 5%;
+}
+
+.gamificacao {
+  right: 5%;
+}
+
+
+.sobre-gamifica, .gamificacao{
+  width: 500px;
+  height: 600px;
+
+  padding: 40px;
+
+  background-color: white;
+
+  border: solid 10px #cf5830;
+  border-radius: 30px;
+
+  color: black;
+  font-family: "Anta";
+
+  position: absolute ;
+
+  top: 10% ;
+}
+
+.sobre-gamifica,.gamificacao  h2 {
+  margin-bottom: 30px;
+
+  font-size: 30px;
+  text-align: center;
+}
+
+.sobre-gamifica,.gamificacao p {
+  font-size:  16px;
+  text-align: justify;
+
+  line-height: 40px;
+}
