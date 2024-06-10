@@ -3,6 +3,7 @@ import sword from "./images/sword.png";
 import logo from "./images/logo.png";
 import logoVertical from "./images/logo-vertical.png";
 
+
 export const Resources = {
   Sword: new ImageSource(sword),
   Logo: new ImageSource(logo),

@@ -54,7 +54,7 @@ export class gamificationScene extends Scene {
                 this.explicacaoTexto!.style.opacity = opacidade.toString()             
                 
             }
-        },30)
+        },10)
 
         let containergame = document.querySelector(".container-game") as HTMLElement
         containergame.appendChild(this.explicacaoTexto)
@@ -87,7 +87,7 @@ export class gamificationScene extends Scene {
                     if ( event.key == Keys.Enter ) {
                         this.fadeOutElement(this.explicacaoTexto!)
                         // Direcionar para a próxima cena
-                        engine.goToScene("exposicao",{
+                        engine.goToScene("comandos",{
                         sourceOut: new FadeInOut ({duration: 1000})
                     })
                 }

@@ -13,8 +13,7 @@ export class expoScene extends Scene {
 
     onInitialize(engine: Engine<any>): void {
         this.backgroundColor = Color.Blue 
-
-    }
     
     
-}    
+    } 
+}   

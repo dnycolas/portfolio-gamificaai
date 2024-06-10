@@ -68,7 +68,7 @@ export class historyScene extends Scene {
                 this.elementoTexto!.style.opacity = opacidade.toString()
                 
             }
-        },30)
+        },10)
 
 
         // Inserir elementoTexto no container-game
