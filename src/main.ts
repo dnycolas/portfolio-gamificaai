@@ -9,7 +9,9 @@ import { comandos } from "./scenes/comandos";
 const game = new Engine({
   width: 1200,
   height: 800,
-  canvasElementId: "jogo"
+  canvasElementId: "jogo",
+  // otimização para PixelArt
+  pixelArt: true
 })
 
 game.addScene("bemvindo", new welcomeScene())
@@ -19,7 +21,7 @@ game.addScene("comandos", new comandos())
 game.addScene("exposicao", new expoScene())
 
 game.start(loader).then(() => {
-  game.goToScene("bemvindo", {
+  game.goToScene("exposicao", {
     // Adiciona transição lenta ao ir para a welcomeScene
     sourceOut: new FadeInOut({ duration: 1000 })
   })
