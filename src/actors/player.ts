@@ -53,5 +53,31 @@ export class Player extends Actor {
                     break;
             }
         })
+
+        // Configura o player para monitorar evento "release" -> soltar
+        engine.input.keyboard.on ("release", (event) => {
+            // Fazer o player parar ao soltar as teclas de movimentação
+            // Parar movimentação lateral ao soltar as teclas de movimentação lateral
+            if (
+                event.key == Keys.A ||
+                event.key == Keys.Left ||
+                event.key == Keys.D ||
+                event.key == Keys.Right
+            ) {
+                // Zerar velocidade horizontal
+                this.vel.x = 0
+            }
+
+            // Para movimentação vertical ao soltar as teclas de movimentacao vertical
+            if (
+                event.key == Keys.W ||
+                event.key == Keys.Up ||
+                event.key == Keys.S ||
+                event.key == Keys.Down
+            ) {
+                // Zerar velocidade horizontal
+                this.vel.y = 0
+            }
+        })
     }
 }
