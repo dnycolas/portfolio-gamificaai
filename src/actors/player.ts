@@ -1,14 +1,18 @@
-import { Actor, CollisionType, Color, Engine, Keys, vec } from "excalibur";
+import { Actor, Animation, CollisionType, Color, Engine, Keys, SpriteSheet, Vector, vec } from "excalibur";
+import { Resources } from "../resources";
 
 export class Player extends Actor {
+    // 
+
     // Propriedade do player
     private velocidade: number = 180
 
     // Configuração do Player
-    constructor() {
+    constructor(posicao: Vector) {
         super({
-            pos: vec(600, 520),
-            radius: 16,
+            pos: posicao,
+            width:32,
+            height:32,
             name: "Jogador",
             color: Color.Red,
             collisionType: CollisionType.Active
@@ -16,6 +20,44 @@ export class Player extends Actor {
     }
 
     onInitialize(engine: Engine<any>): void {
+        // Configurar sprite do player 
+        const PlayerSpriteSheet = SpriteSheet.fromImageSource({
+            image: Resources.PlayerSpriteSheet,
+            grid: {
+                spriteWidth: 32,
+                spriteHeight: 64,
+                columns: 56,
+                rows: 20
+            },
+            spacing: {
+                originOffset: {
+                    y: 8
+                }
+            }
+        })
+
+        // Criar animaçoes
+        // Animacoes Idle
+        // Idle Esquerda
+        const leftIdle = new Animation ({
+            frames: [
+                {graphic: PlayerSpriteSheet.getSprite(12,1)},
+                {graphic: PlayerSpriteSheet.getSprite(13,1)},
+                {graphic: PlayerSpriteSheet.getSprite(14,1)},
+                {graphic: PlayerSpriteSheet.getSprite(15,1)},
+                {graphic: PlayerSpriteSheet.getSprite(16,1)},
+                {graphic: PlayerSpriteSheet.getSprite(17,1)},
+            ],
+            frameDuration: 70
+        })
+        this.graphics.add("leftIdle", leftIdle)
+
+        this.graphics.use("leftIdle")
+
+        // pra ver se ta funcionando (colocar imagem)
+        // let imagemPlayer = PlayerSpriteSheet.getSprite(3, 0)
+        // this.graphics.add(imagemPlayer)
+
         // Configurar player para monitorar evento "hold" -> segurar tecla
         engine.input.keyboard.on("press", (event) => {
             // Detectar qual tecla está pressionada

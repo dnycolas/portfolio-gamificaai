@@ -1,7 +1,8 @@
-import { Color, Engine, FadeInOut, Keyboard, Scene, Transition, Keys, Resource, vec, Actor, CollisionType } from "excalibur";
+import { Color, Engine, FadeInOut, Keyboard, Scene, Transition, Keys, Resource, vec, Actor, CollisionType, Vector } from "excalibur";
 import { KeyEvent, KeyEvents, } from "excalibur/build/dist/Input/Keyboard";
 import { Resources } from "../resources";
 import { Player } from "../actors/player";
+import { npc } from "../actors/npc";
 
 export class expoScene extends Scene {
 
@@ -14,6 +15,9 @@ export class expoScene extends Scene {
     }
 
     onInitialize(engine: Engine<any>): void {
+        // Ativar debug
+        engine.toggleDebug
+
         this.backgroundColor = Color.Black
         
 
@@ -29,16 +33,57 @@ export class expoScene extends Scene {
             pos: vec(offsetX,offsetY)
         })
 
+        // Definir zoom da camera para aumentar um pouco a visualizaçao
         this.camera.zoom = 1.4
 
+
+        // Carregar spawn point do player
+        let spawnPoint = tiledMap.getObjectsByName("jogador")[0]
+
+
+
         // Criação e configuração do Player
-        let jogador = new Player()
+        let jogador = new Player(vec(spawnPoint.x + offsetX, spawnPoint.y + offsetY))
+
+
 
         // Define z-index do player, útil se algum outro elemento ficar "por cima " do jogador
         jogador.z = 1
         
         // Adicionar o player na cena
         this.add(jogador)
+
+        let spawnNpcA = tiledMap.getObjectsByName("npc_a")[0]
+        let spawnNpcB = tiledMap.getObjectsByName("npc_b")[0]
+        let spawnNpcC = tiledMap.getObjectsByName("npc_c")[0]
+
+        // configurar NPCs 
+        let npcA = new npc (
+            vec(spawnNpcA.x + offsetX, spawnNpcA.y + offsetY),
+            Color.Blue,
+            "npcA"
+        )
+
+        // configurar NPCs 
+        let npcB = new npc (
+            vec(spawnNpcB.x + offsetX, spawnNpcA.y + offsetY),
+            Color.Red,
+            "npcB"
+        )
+        // configurar NPCs 
+        let npcC = new npc (
+            vec(spawnNpcC.x + offsetX, spawnNpcA.y + offsetY),
+            Color.Yellow,
+            "npcC"
+        )
+
+        this.add(npcA)
+        this.add(npcB)
+        this.add(npcC)
+
+        // Focar a camera no player
+        this.camera.strategy.lockToActor(jogador)
+        this.camera.zoom = 1
 
         // Adicionar colisao com cada objeto
         // Pegar a camada de objetos colisores

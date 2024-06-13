@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="29" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="38">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="29" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="41">
  <tileset firstgid="1" source="tileset_paredes.tsx"/>
  <tileset firstgid="8285" source="tileset_objetos.tsx"/>
  <tileset firstgid="9085" source="tiliset_planta.tsx"/>
@@ -161,6 +161,7 @@
   <object id="28" name="planta_a" x="104.75" y="83.5" width="47.75" height="60.25"/>
   <object id="29" name="planta_b" x="781.25" y="83.75" width="42" height="57.75"/>
   <object id="30" name="mesa_Sinuca" x="174" y="345.667" width="67.3333" height="94"/>
+  <object id="38" x="77.0909" y="511.818" width="337.909" height="12.1818"/>
  </objectgroup>
  <layer id="6" name="blocoColisores" width="29" height="20" opacity="0" offsetx="138" offsety="100">
   <properties>
