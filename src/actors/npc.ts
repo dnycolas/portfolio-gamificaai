@@ -10,7 +10,8 @@ export class npc extends Actor {
             name: nome,
             color: cor,
             collisionType: CollisionType.Fixed
-        })
+        });
+        
  
     }
     onInitialize(engine: Engine<any>): void {

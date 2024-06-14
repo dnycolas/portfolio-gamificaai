@@ -1,11 +1,13 @@
-import { Actor, Animation, CollisionType, Color, Engine, Keys, SpriteSheet, Vector, vec } from "excalibur";
+import { Actor, Animation, Collider, CollisionContact, CollisionType, Color, Engine, Keys, Side, SpriteSheet, Vector, vec } from "excalibur";
 import { Resources } from "../resources";
 
 export class Player extends Actor {
-    // 
-
     // Propriedade do player
     private velocidade: number = 180
+
+    private temObjetoProximo: boolean = false
+
+    private ultimoColisor?: Collider
 
     // Configuração do Player
     constructor(posicao: Vector) {
@@ -265,4 +267,26 @@ export class Player extends Actor {
 
         })
     }
+
+    onPostCollisionResolve(self: Collider, other: Collider, side: Side, contact: CollisionContact): void {
+        // Indicar que tem um objeto proximo
+        this.temObjetoProximo = true
+
+        // Registrar o ultimo objeto colidido
+        this.ultimoColisor = other
+
+    }
+
+    onPreUpdate(engine: Engine<any>, delta: number): void {
+        // Detectar se o player esta distante do ultimo objeto colidido
+        if (this.ultimoColisor && this.pos.distance(this.ultimoColisor.worldPos) > 60) {
+            // Marca que o objeto não está próximo
+            this.temObjetoProximo = false 
+
+            console.log("Esta longe")
+
+            
+        }
+    }
+
 }
