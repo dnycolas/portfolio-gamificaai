@@ -80,13 +80,13 @@
   <object id="33" name="jogador" x="463.5" y="505.5">
    <point/>
   </object>
-  <object id="34" name="npc_b" x="463.727" y="198.364">
+  <object id="34" name="npc_b" x="463.727" y="191.091">
    <point/>
   </object>
-  <object id="36" name="npc_a" x="241.415" y="198.841">
+  <object id="36" name="npc_a" x="240.87" y="190.841">
    <point/>
   </object>
-  <object id="37" name="npc_c" x="686.438" y="198.313">
+  <object id="37" name="npc_c" x="686.438" y="191.222">
    <point/>
   </object>
  </objectgroup>

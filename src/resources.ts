@@ -15,10 +15,13 @@ import tmxMapaPath from "./maps/showroomMap.tmx?url"
 
 import PlayerSpritePath from "./sprites/jogador.png"
 
+import NpcASpritePath from "./sprites/npc_A.png"
+
 export const Resources = {
   Sword: new ImageSource(sword),
   Logo: new ImageSource(logo),
   PlayerSpriteSheet: new ImageSource(PlayerSpritePath, {filtering: ImageFiltering.Pixel}),
+  NpcASpriteSheet: new ImageSource(NpcASpritePath, {filtering: ImageFiltering.Pixel}),
   logoVertical: new ImageSource(logoVertical),
   Mapa: new TiledResource(tmxMapaPath, {
     pathMap: [
