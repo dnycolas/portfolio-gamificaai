@@ -266,7 +266,59 @@ export class Player extends Actor {
             } 
 
         })
+
+        // Configurar o player para monitorar evento "release" -> soltar
+        engine.input.keyboard.on ("release", (event) => {
+
+        })
+
+        // Configura o player para monitorar evento "press" -> pressionar
+        engine.input.keyboard.on ("press", (event) => {
+            // Se a tecla pressionada for a "F" e tiver objeto próximo
+            if (event.key == Keys.F && this.temObjetoProximo){
+                // Identificar o alvo da interação
+                // se o nome "name" da indentidade "owner" do colisor "ultimoColisor" == "mesa_stand_a" nome que a mesa tem Tiled
+                // daria pra usar em algum prototipo do mario 
+                if (this.ultimoColisor?.owner.name == "mesa_stand_a"){
+                    console.log("Essa é a mesa A");
+                    // Vai para a cena passando qual o objeto da interacao
+                    engine.goToScene("cenaCase", {
+                        sceneActivationData: {
+                            nomeDoActor: this.ultimoColisor?.owner.name
+                        }
+                    })
+                }
+                
+            
+                if (this.ultimoColisor?.owner.name == "mesa_stand_b") {
+                    console.log("Essa é a mesa B");
+                    
+
+                    engine.goToScene("cenaCase", {
+                        sceneActivationData: {
+                            nomeDoActor: this.ultimoColisor?.owner.name
+                        }
+                    })
+                }
+                    
+
+                if (this.ultimoColisor?.owner.name == "mesa_stand_c") {
+                    console.log("Essa é a mesa C");
+                    
+
+                    engine.goToScene("cenaCase", {
+                        sceneActivationData: {
+                            nomeDoActor: this.ultimoColisor?.owner.name
+                        }
+                    })
+                }
+
+                
+            }
+        })
     }
+
+
 
     onPostCollisionResolve(self: Collider, other: Collider, side: Side, contact: CollisionContact): void {
         // Indicar que tem um objeto proximo
