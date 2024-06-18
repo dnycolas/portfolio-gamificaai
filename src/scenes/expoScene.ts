@@ -16,7 +16,14 @@ export class expoScene extends Scene {
 
     onInitialize(engine: Engine<any>): void {
         // Ativar debug
-        engine.toggleDebug
+        engine.toggleDebug()
+
+        // carregar musica de fundo (BGM) - Background music
+        // let musicaFundo = Resources.RitmoBGM 
+
+        // configurar a musica e executar
+        // musicaFundo.loop = true
+        // musicaFundo.play(0.5) 
 
         this.backgroundColor = Color.Black
         

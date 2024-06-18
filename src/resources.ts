@@ -1,5 +1,5 @@
 import { TiledResource } from "@excaliburjs/plugin-tiled";
-import { ImageFiltering, ImageSource, Loader } from "excalibur";
+import { ImageFiltering, ImageSource, Loader, Sound } from "excalibur";
 import sword from "./images/sword.png";
 import logo from "./images/logo.png";
 import logoVertical from "./images/logo-vertical.png";
@@ -17,23 +17,29 @@ import PlayerSpritePath from "./sprites/jogador.png"
 
 import NpcASpritePath from "./sprites/npc_A.png"
 
+import fotoJapa from "./images/japa.png"
+
+import UnderTaleSound from "./sounds/Undertale OST - Shop Extended.mp3"
+
 export const Resources = {
   Sword: new ImageSource(sword),
   Logo: new ImageSource(logo),
-  PlayerSpriteSheet: new ImageSource(PlayerSpritePath, {filtering: ImageFiltering.Pixel}),
-  NpcASpriteSheet: new ImageSource(NpcASpritePath, {filtering: ImageFiltering.Pixel}),
+  PlayerSpriteSheet: new ImageSource(PlayerSpritePath, { filtering: ImageFiltering.Pixel }),
+  NpcASpriteSheet: new ImageSource(NpcASpritePath, { filtering: ImageFiltering.Pixel }),
+  RitmoBGM: new Sound(UnderTaleSound),
   logoVertical: new ImageSource(logoVertical),
   Mapa: new TiledResource(tmxMapaPath, {
     pathMap: [
-      {path: "showroomMap.tmx", output: tmxMapaPath},
-      {path: "Room_Builder_32x32.png", output: pngTileSetPath},
-      {path: "tileset_paredes.tsx", output: tsxParedesPath},
-      {path: "tiliset_planta.tsx", output:  tsxPlantaPath},
-      {path: "tileset_computadores.tsx", output:  tsxComputadoresPath},
-      {path: "tileset_objetos.tsx", output: tsxObjetosPath},
+      { path: "showroomMap.tmx", output: tmxMapaPath },
+      { path: "Room_Builder_32x32.png", output: pngTileSetPath },
+      { path: "tileset_paredes.tsx", output: tsxParedesPath },
+      { path: "tiliset_planta.tsx", output: tsxPlantaPath },
+      { path: "tileset_computadores.tsx", output: tsxComputadoresPath },
+      { path: "tileset_objetos.tsx", output: tsxObjetosPath },
     ]
-  })
-    
+  }),
+  JapaPhoto: new ImageSource(fotoJapa)
+
 } as const;
 
 export const loader = new Loader();
